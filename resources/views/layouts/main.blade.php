@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>@yield('title')</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  @yield('css')
-  @yield('js')
 
-</head>
-<body>
+  <head>
 
-<div class="container-fluid p-5 bg-primary text-white text-center">
-  <h1>HEADER</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-  @yield('header')
-</div>
-  
-<div class="container mt-5">
-  <div class="row">
-    @section('sidebar')
-    <div style="background-color:green" class="col-sm-3 col-lg-5">
-      <h3>Sidebar</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    @show
-    @section('content')
-      <div style="background-color:brown" class="col-sm-9">
-      <div style="background-color:pink">
-        <h1>Slider</h1>
-        <br>
-        <hr>
-        <br>
-  
-      </div>
-        <h3>Content</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-      </div>
-    @show
-  </div>
-</div>
-<div class="container-fluid p-5 bg-primary text-white text-center">
-  <h1>My Footer</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="@yield('keywords')">
+    <meta name="description" content="@yield('description')">
+    <meta name="author" content="Sima">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-</body>
+    <title>@yield('title')</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/font-awesome.css">
+
+    <link rel="stylesheet" href="{{asset('assets')}}/css/templatemo-hexashop.css">
+
+    <link rel="stylesheet" href="{{asset('assets')}}/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="{{asset('assets')}}/css/lightbox.css">
+    @yield('css')
+    @yield('headjs')
+
+    </head>
+    <body>
+      @include('home._header')
+      
+      @include('home._home')
+      @section('content')
+      içerik alanı
+      @show
+      @include('home._sub_content')
+      @include('home._sub_content')
+      @include('home._sub_content')
+      @include('home._description')
+      @include('home._social')
+      @include('home._subscribe')
+
+      @include('home._footer')
+      @yield('footerjs')
+    </body>
 </html>
