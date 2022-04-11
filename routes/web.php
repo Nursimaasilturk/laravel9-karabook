@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -35,6 +36,8 @@ Route::get('/', function() {
     return view('home.index',['name' => 'Nursima ASİLTÜRK']);
 });
 Route::redirect('/anasayfa', '/home')->name('anasayfa');
+// Admin ---------
+Route::get('/admin',[AdminController::class, 'index'])->name('admin');
 
 Route::middleware([
     'auth:sanctum',
