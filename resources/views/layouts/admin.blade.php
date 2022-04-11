@@ -6,25 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
     <!-- base:css -->
-    <link rel="stylesheet" href="vendors/typicons.font/font/typicons.css">
-    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/admin/vendors/typicons.font/font/typicons.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/admin/vendors/css/vendor.bundle.base.css">
     <!-- endinject --> 
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/admin/css/vertical-layout-light/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="{{asset('assets')}}/admin/images/favicon.png" />
     @yield('css')
     @yield('js')
   </head>
   <body>
 	  @include('admin._header')
+    <div class="container-fluid page-body-wrapper">
+    @include('admin._option')
     @include('admin._sidebar')
+    <div class="main-panel">
     @section('content')
-    @endsection
+      içerik alanı
+    @show
     @include('admin._footer')
+    </div>
     @yield('footer')
-
+   </div>
   </body>
 </html>

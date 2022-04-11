@@ -3,5 +3,5 @@
 
 
 @section('content')
-	@include('admin._content')
+@include('admin._content')
 @endsection
