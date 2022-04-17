@@ -38,6 +38,7 @@ Route::get('/', function() {
 Route::redirect('/anasayfa', '/home')->name('anasayfa');
 // Admin ---------
 Route::get('/admin',[AdminController::class, 'index'])->name('admin');
+Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
 
 Route::middleware([
     'auth:sanctum',
