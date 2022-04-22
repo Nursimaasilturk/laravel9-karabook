@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -49,3 +50,8 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+// ---------------- ADMİN Category--------------
+Route::get('/admin/category',[CategoryController::class,'index'])->name('admin_category');
+Route::get('/admin/category/create',[CategoryController::class,'create'])->name('admin_category_create');
+Route::post('/admin/category/store',[CategoryController::class,'store'])->name('admin_category_store');
