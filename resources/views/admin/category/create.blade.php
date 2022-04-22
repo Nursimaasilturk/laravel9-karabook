@@ -21,51 +21,47 @@
 		</div> <!-- Container Fluid -->
 	</section>
 
-	<section class="content">
-		<div class="add-category-form">
-			<form role="form" action="/admin/category/store" method="post">
-				@csrf
-				<div class="form-group">
-					<label for="exampleInputEmail1" class="form-label">Title</label>
-					<input type="text" class="form-control" name="title" placeholder="Title">
-
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail1" class="form-label">Keywords</label>
-					<input type="text" class="form-control" name="keywords" placeholder="Keywords">
-
-				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail1" class="form-label">Description</label>
-					<input type="text" class="form-control" name="description" placeholder="Description">
-
-				</div>
-
-				<div class="form-group">
-					<label for="exampleInputFile">Image</label>
-					<div class="input-group">
-						<div class="custom-file">
-							<input type="file" class="custom-file-input" name="image">
-							<label class="custom-file-label" for="exampleInputFile">Choose Image File</label>
-						</div>
-						<div class="input-group-append">
-							<span class="input-group-text" id="">Upload</span>
-						</div>
+	<section class="container">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Category Elements</h4>
+				<p class="card-description">
+					Basic form elements
+				</p>
+				<form class="forms-sample" role="form" action="/admin/category/store" method="POST">
+					@csrf
+					<div class="form-group">
+						<label for="exampleInputName1">Title</label>
+						<input type="text " class="form-control" name="title" placeholder="Title">
 					</div>
-				</div>
-				<div class="form-group">
-					<label>Status</label>
-					<select class="form-control" name="status">
-						<option>True</option>
-						<option>False</option>
-						
-					</select>
-				</div>
-				
-				<div class="button-submit">
-					<button type="submit" class="btn btn-primary">Save</button>
-				</div>
-			</form>
+
+					<div class="form-group">
+						<label for="exampleInputName1">Description</label>
+						<input type="text " class="form-control" name="description" placeholder="Description">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleInputName1">Keywords</label>
+						<input type="text " class="form-control" name="keywords" placeholder="Keywords">
+					</div>
+					
+					<div class="mb-3">
+							<label for="formFile">Choose Image</label>
+						<input class="form-control" type="file" id="formFile" name="image">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Status</label>
+						<select class="form-control form-control-lg" name="status">
+							<option value="1">True</option>
+							<option value="2">False</option>
+						</select>
+					</div>
+
+					<button type="submit" class="btn btn-primary mr-2">Save</button>
+					<button class="btn btn-light">Cancel</button>
+				</form>
+			</div>
 		</div>
 	</section>
 

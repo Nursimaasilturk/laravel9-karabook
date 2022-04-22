@@ -30,6 +30,7 @@ class CategoryController extends Controller
         return view('admin.category.create');
     }
 
+  
     /**
      * Store a newly created resource in storage.
      *
@@ -38,6 +39,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data = new Category();
         $data ->parent_id= 0;
         $data ->title = $request->title;
@@ -46,6 +48,7 @@ class CategoryController extends Controller
         $data ->status = $request->status;
         $data->save();
         return redirect('admin/category');
+ 
     }
 
     /**
