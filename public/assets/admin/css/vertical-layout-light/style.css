@@ -25312,8 +25312,16 @@ body.avgrund-active {
   flex-direction: column;
 }
 
-
-
+ion-icon {
+  font-size: 16px;
+  padding:10px;
+}
+.sidebar-legend .nav-item .nav-link{
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items:center;
+}
 
 /*------- Added CSS Files */
 
