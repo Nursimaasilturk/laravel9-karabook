@@ -25322,6 +25322,16 @@ ion-icon {
     justify-content: center;
     align-items:center;
 }
+.container .card .card-body .tr-items .tr-items-title{
+    color:black;  
+    background:#9891e5; 
+}
+.container .card .card-body .tr-items {
+  width: 200px;
+  height: 50px;
+  
+
+}
 
 /*------- Added CSS Files */
 

@@ -49,9 +49,9 @@
 										<th>Description</th>
 										<th>Image</th>
 										<th>Status</th>
-										<th>Edit</th>
-										<th>Delete</th>
-										<th>Show</th>
+										<th style="...">Edit</th>
+										<th style="...">Delete</th>
+										<th style="...">Show</th>
 										
 									</tr>
 								</thead>
@@ -65,7 +65,8 @@
 										<td>{{$rs->image}}</td>
 										<td>{{$rs->status}}</td>
 										<td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-outline-success">EDİT</a></td>
-										<td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-outline-danger">DELETE</a</td>
+										<td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-outline-danger"
+										onclick="return confirm('Deleting!! Are you sure?')">DELETE</a></td>
 										<td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-outline-primary">SHOW</a</td>
 									</tr>	
 									
