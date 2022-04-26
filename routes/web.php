@@ -29,17 +29,16 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/about',[HomeController::class, 'about_us'])->name('about');
+Route::get('/about', [HomeController::class, 'about_us'])->name('about');
 //Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->where(['id'=>'[0-9]+','name'=>'[A-Za-z]+']);
 Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->whereNumber('id')->whereAlpha('name')->name('test');
 
-Route::get('/', function() {
-    return view('home.index',['name' => 'Nursima ASİLTÜRK']);
+Route::get('/', function () {
+    return view('home.index', ['name' => 'Nursima ASİLTÜRK']);
 });
 Route::redirect('/anasayfa', '/home')->name('anasayfa');
-// Admin ---------
-Route::get('/admin',[AdminController::class, 'index'])->name('admin');
-Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -51,11 +50,18 @@ Route::middleware([
     })->name('dashboard');
 });
 
-// ---------------- ADMİN Category--------------
-Route::get('/admin/category',[CategoryController::class,'index'])->name('admin_category');
-Route::get('/admin/category/create',[CategoryController::class,'create'])->name('admin_category_create');
-Route::post('/admin/category/store',[CategoryController::class,'store'])->name('admin_category_store');
-Route::get('/admin/category/edit/{id}',[CategoryController::class,'edit'])->name('admin_category_edit');
-Route::post('/admin/category/update/{id}',[CategoryController::class,'update'])->name('admin_category_update');
-Route::get('/admin/category/delete/{id}',[CategoryController::class,'delete'])->name('admin_category_delete');
-Route::get('/admin/category/show/{id}',[CategoryController::class,'show'])->name('admin_category_show');
+// ---------------- ADMİN PANEL ROUTES--------------
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::get('/login', [HomeController::class, 'login'])->name('admin_login');
+    // ---------------- ADMİN CATEGORY ROUTES--------------
+    Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/delete/{id}','delete')->name('delete');
+        Route::get('/show/{id}','show')->name('show');
+    });
+});

@@ -9,15 +9,15 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col sm-3">
-					<a href="/admin/category/edit/{{$data->id}}" class="btn btn-outline-warning" style="width:200px;">Edit</a>
+					<a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-outline-warning" style="width:200px;">Edit</a>
 				</div>
 				<div class="col sm-3">
-					<a href="/admin/category/delete/{{$data->id}}" class="btn btn-outline-primary"  style="width:200px;"
+					<a href="{{route('admin.category.delete',['id'=>$data->id])}}" class="btn btn-outline-primary"  style="width:200px;"
 					onclick="return confirm('Deleting!! Are you sure?')">Delete</a>
 				</div>
 				<div class="col sm-6">
 					<ol class=" breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="/admin">HOME</a></li>
+						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">HOME</a></li>
 						<li class="breadcrumb-item active">Show Category</li>
 					</ol>
 				</div>

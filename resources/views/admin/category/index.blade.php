@@ -10,11 +10,11 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col sm-6">
-					<a href="/admin/category/create" class="btn btn-outline-warning ">Add Category</a>
+					<a href="{{route('admin.category.create')}}" class="btn btn-outline-warning">Add Category</a>
 				</div>
 				<div class="col sm-6">
 					<ol class=" breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="/admin">HOME</a></li>
+						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">HOME</a></li>
 						<li class="breadcrumb-item active">Category List</li>
 					</ol>
 				</div>
@@ -49,9 +49,9 @@
 										<th>Description</th>
 										<th>Image</th>
 										<th>Status</th>
-										<th style="...">Edit</th>
-										<th style="...">Delete</th>
-										<th style="...">Show</th>
+										<th>Edit</th>
+										<th>Delete</th>
+										<th>Show</th>
 										
 									</tr>
 								</thead>
@@ -64,10 +64,10 @@
 										<td>{{$rs->description}}</td>
 										<td>{{$rs->image}}</td>
 										<td>{{$rs->status}}</td>
-										<td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-outline-success">EDİT</a></td>
-										<td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-outline-danger"
+										<td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-outline-success">EDİT</a></td>
+										<td><a href="{{route('admin.category.delete',['id'=>$rs->id])}}" class="btn btn-outline-danger"
 										onclick="return confirm('Deleting!! Are you sure?')">DELETE</a></td>
-										<td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-outline-primary">SHOW</a</td>
+										<td><a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-outline-primary">SHOW</a</td>
 									</tr>	
 									
 									@endforeach								
