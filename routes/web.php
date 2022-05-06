@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BookController;
 
 
 /*
@@ -56,6 +57,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [HomeController::class, 'login'])->name('admin_login');
     // ---------------- ADMİN CATEGORY ROUTES--------------
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/delete/{id}','delete')->name('delete');
+        Route::get('/show/{id}','show')->name('show');
+    });
+    // ------------------- ADMİN BOOK ROUTES --------------------
+    Route::prefix('book')->name('book.')->controller(BookController::class)->group(function () {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');

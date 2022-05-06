@@ -104,8 +104,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function delete(Category $category)
+   
+    public function delete(Category $category,$id)
     {
-        //
+        $data = Category::find($id);
+        Storage::delete($data->image);
+        $data->delete();
+        return redirect('admin/category');
     }
+    
+
 }
