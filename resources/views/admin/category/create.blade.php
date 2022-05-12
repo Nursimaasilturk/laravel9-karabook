@@ -28,7 +28,7 @@
 				<p class="card-description">
 					Basic form elements
 				</p>
-				<form class="forms-sample" role="form" action="{{route('admin.category.create')}}" method="POST">
+				<form class="forms-sample" role="form" action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
 						<label for="exampleInputName1">Title</label>

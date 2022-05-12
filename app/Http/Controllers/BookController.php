@@ -30,7 +30,7 @@ class BookController extends Controller
     public function create()
     {
         $data= Category::all();
-        return view('admin.book.create ',[
+        return view('admin.book.create',[
             'data' => $data
         ]);
     }
@@ -52,18 +52,6 @@ class BookController extends Controller
         $data ->keywords = $request->keywords;
         $data ->description = $request->description;
         $data ->detail = $request->detail;
-        $data ->novel = $request->novel;
-        $data ->classic = $request->classic;
-        $data ->psychology = $request->psychology;
-        $data ->religion = $request->religion;
-        $data ->college_preparatory_books = $request->college_preparatory_books;
-        $data ->history = $request->history;
-        $data ->story = $request->story;
-        $data ->computer_science = $request->computer_science;
-        $data ->personal_developments_books = $request->personal_developments_books;
-        $data ->english = $request->english;
-        $data ->cookbooks = $request->cookbooks;
-        $data ->poem = $request->poem;
         $data ->status = $request->status;
         if($request->file('image')){
             $data->image= $request->file('image')->store('images');
@@ -119,18 +107,6 @@ class BookController extends Controller
         $data ->keywords = $request->keywords;
         $data ->description = $request->description;
         $data ->detail = $request->detail;
-        $data ->novel = $request->novel;
-        $data ->classic = $request->classic;
-        $data ->psychology = $request->psychology;
-        $data ->religion = $request->religion;
-        $data ->college_preparatory_books = $request->college_preparatory_books;
-        $data ->history = $request->history;
-        $data ->story = $request->story;
-        $data ->computer_science = $request->computer_science;
-        $data ->personal_developments_books = $request->personal_developments_books;
-        $data ->english = $request->english;
-        $data ->cookbooks = $request->cookbooks;
-        $data ->poem = $request->poem;
         $data ->status = $request->status;
         if($request->file('image')){
             $data->image= $request->file('image')->store('images');

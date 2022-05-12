@@ -26,7 +26,7 @@
 			<div class="card-body">
 				<h4 class="card-title">Category Elements</h4>
 				
-				<form class="forms-sample" role="form" action="{{route('admin.category.create')}}" method="POST">
+				<form class="forms-sample" role="form" action="{{route('admin.category.create')}}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
 						<label for="exampleInputName1">Title</label>
@@ -47,7 +47,12 @@
 							<label for="formFile">Choose Image</label>
 						<input class="form-control" type="file" id="formFile" name="image">
 					</div>
+					
+					<div class="form-group">
+					<textarea  class="form-control" name="detail" id="" cols="30" rows="10">
 
+					</textarea>
+					</div>
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Status</label>
 						<select class="form-control form-control-lg" name="status">
