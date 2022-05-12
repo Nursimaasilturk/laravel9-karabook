@@ -14,7 +14,7 @@
 				<div class="col sm-6">
 					<ol class=" breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">HOME</a></li>
-						<li class="breadcrumb-item active">Add Category</li>
+						<li class="breadcrumb-item active">Add Book</li>
 					</ol>
 				</div>
 			</div>
@@ -24,10 +24,22 @@
 	<section class="container">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Category Elements</h4>
-				
-				<form class="forms-sample" role="form" action="{{route('admin.category.create')}}" method="POST" enctype="multipart/form-data">
+				<h4 class="card-title">Book Elements</h4>
+				<p class="card-description">
+					Basic form elements
+				</p>
+				<form class="forms-sample" role="form" action="{{route('admin.book.store')}}" method="POST" enctype="multipart/form-data">
 					@csrf
+
+					<div class="form-group">
+						<label>Parent Category</label>
+						<select class="form-control select2" name="parent_id">
+							@foreach($data as $rs)
+								<option value="{{$rs->id}}" >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+							@endforeach
+						</select>
+					</div>
+
 					<div class="form-group">
 						<label for="exampleInputName1">Title</label>
 						<input type="text " class="form-control" name="title" placeholder="Title">
@@ -42,17 +54,23 @@
 						<label for="exampleInputName1">Keywords</label>
 						<input type="text " class="form-control" name="keywords" placeholder="Keywords">
 					</div>
+					<div class="form-group">
+						<label for="exampleInputName1">Details</label>
+						<textarea class="form-control"  name="detail" cols="30" rows="10">
+
+						</textarea>
+					
+					</div>
+					<div class="form-group">
+						<label for="exampleInputName1">Authors</label>
+						<input type="text " class="form-control" name="author" placeholder="Authors">
+					</div>
 					
 					<div class="mb-3">
 							<label for="formFile">Choose Image</label>
 						<input class="form-control" type="file" id="formFile" name="image">
 					</div>
-					
-					<div class="form-group">
-					<textarea  class="form-control" name="detail" id="" cols="30" rows="10">
 
-					</textarea>
-					</div>
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Status</label>
 						<select class="form-control form-control-lg" name="status">

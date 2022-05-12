@@ -7,8 +7,7 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class BookController extends Controller
-{
+class BookController extends Controller{
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        $data= Category::all();
+        $data= Book::all();
         return view('admin.book.create',[
             'data' => $data
         ]);
@@ -52,12 +51,13 @@ class BookController extends Controller
         $data ->keywords = $request->keywords;
         $data ->description = $request->description;
         $data ->detail = $request->detail;
+        $data ->author = $request->author;
         $data ->status = $request->status;
         if($request->file('image')){
             $data->image= $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/book ');
+        return redirect('admin/book');  
   
     }
 
@@ -84,7 +84,7 @@ class BookController extends Controller
     public function edit(Book $book,$id)
     {
         $data= Book::find($id);
-        $datalist = Category::all();
+        $datalist = Book::all();
         return view('admin.book.edit',[
             'data' => $data,
             'datalist' => $datalist
@@ -107,6 +107,7 @@ class BookController extends Controller
         $data ->keywords = $request->keywords;
         $data ->description = $request->description;
         $data ->detail = $request->detail;
+        $data ->author = $request->author;
         $data ->status = $request->status;
         if($request->file('image')){
             $data->image= $request->file('image')->store('images');
@@ -119,7 +120,7 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Book $book
      * @return \Illuminate\Http\Response
      */
     public function delete(Category $category,$id)

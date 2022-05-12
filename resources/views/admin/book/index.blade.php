@@ -46,6 +46,7 @@
 										<th>ID</th>
 										<th>Category</th>
 										<th>Title</th>
+										<th>Author</th>
 										<th>Image</th>
 										<th>Status</th>
 										<th>Edit</th>
@@ -58,8 +59,9 @@
 									@foreach($data as $rs)
 									<tr>
 										<td>{{$rs->id}}</td>
-										<td>{{$rs->title}}</td>
 										<td>{{CategoryController::getParentsTree($rs,$rs->title)}}</td>
+										<td>{{$rs->title}}</td>
+										<td>{{$rs->author}}</td>
 										<td>
 											@if ($rs->image)
 											<img src="{{Storage::url($rs->image)}}" style="height:40px">

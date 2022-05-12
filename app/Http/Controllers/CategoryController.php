@@ -42,7 +42,6 @@ class CategoryController extends Controller
     public function create()
     {
         $data= Category::all();
-    
         return view('admin.category.create',[
             'data'=> $data
         ]);
