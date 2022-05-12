@@ -31,6 +31,15 @@
 				<form class="forms-sample" role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
+						<label>Parent Category</label>
+						<select class="form-control select2" name="parent_id">
+							<option value="0" selected="selected">Main Category</option>
+							@foreach($datalist as $rs)
+							<option value="{{$rs->id}}" >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+							@endforeach
+						</select>
+					</div>	
+					<div class="form-group">
 						<label for="exampleInputName1">Title</label>
 						<input type="text " class="form-control" name="title" value="{{$data->title}}">
 					</div>

@@ -24,12 +24,23 @@
 	<section class="container">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Category Elements</h4>
+				<h4 class="card-title">Category Elements2</h4>
 				<p class="card-description">
 					Basic form elements
 				</p>
 				<form class="forms-sample" role="form" action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
 					@csrf
+
+					<div class="form-group">
+						<label>Parent Category</label>
+						<select class="form-control select2" name="parent_id">
+							<option value="0" selected="selected">Main Category</option>
+							@foreach($data as $rs)
+								<option value="{{$rs->id}}" >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+							@endforeach
+						</select>
+					</div>
+
 					<div class="form-group">
 						<label for="exampleInputName1">Title</label>
 						<input type="text " class="form-control" name="title" placeholder="Title">

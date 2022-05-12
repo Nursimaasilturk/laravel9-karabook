@@ -44,9 +44,8 @@
 								<thead class="thead-primary">
 									<tr>
 										<th>ID</th>
+										<th>Parent Category</th>
 										<th>Title</th>
-										<th>Keywords</th>
-										<th>Description</th>
 										<th>Image</th>
 										<th>Status</th>
 										<th>Edit</th>
@@ -59,9 +58,8 @@
 									@foreach($data as $rs)
 									<tr>
 										<td>{{$rs->id}}</td>
+										<td>{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</td>
 										<td>{{$rs->title}}</td>
-										<td>{{$rs->keywords}}</td>
-										<td>{{$rs->description}}</td>
 										<td>
 											@if($rs->image)
 											<img src="{{Storage::url($rs->image)}}" style="height: 50px">
