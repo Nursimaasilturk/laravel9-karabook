@@ -32,8 +32,8 @@
 					@csrf
 					<div class="form-group">
 						<label>Parent Category</label>
-						<select class="form-control select2" name="parent_id">
-							<option value="0" selected="selected">Main Category</option>
+						<select class="form-control select2" name="category_id">
+							
 							@foreach($datalist as $rs)
 							<option value="{{$rs->id}}" >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
 							@endforeach
@@ -62,7 +62,7 @@
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Status</label>
 						<select class="form-control form-control-lg" name="status">
-							<option value="{{$data->status}}"  selected>{{$data->status==1?"True":"False"}}</option>
+							<option value="{{$data->status}}" >{{$data->status==1?"True":"False"}}</option>
 							<option value="1">True</option>
 							<option value="2">False</option>
 						</select>

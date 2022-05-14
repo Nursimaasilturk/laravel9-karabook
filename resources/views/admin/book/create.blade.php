@@ -26,33 +26,33 @@
 			<div class="card-body">
 				<h4 class="card-title">Book Elements</h4>
 				<p class="card-description">
-					Basic form elements
+				
 				</p>
 				<form class="forms-sample" role="form" action="{{route('admin.book.store')}}" method="POST" enctype="multipart/form-data">
 					@csrf
 
 					<div class="form-group">
 						<label>Parent Category</label>
-						<select class="form-control select2" name="parent_id">
+						<select class="form-control select2" name="category_id">
 							@foreach($data as $rs)
-								<option value="{{$rs->id}}" >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+								<option value="{{$rs->id}}" @if ($rs->id== $data->category_id) selected ="selected" @endif >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
 							@endforeach
 						</select>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputName1">Title</label>
-						<input type="text " class="form-control" name="title" placeholder="Title">
+						<input type="text " class="form-control" name="title" value="{{$data->title}}">
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputName1">Description</label>
-						<input type="text " class="form-control" name="description" placeholder="Description">
+						<input type="text " class="form-control" name="description" value="{{$data->description}}">
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputName1">Keywords</label>
-						<input type="text " class="form-control" name="keywords" placeholder="Keywords">
+						<input type="text " class="form-control" name="keywords" value="{{$data->keywords}}">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputName1">Details</label>
@@ -63,7 +63,7 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputName1">Authors</label>
-						<input type="text " class="form-control" name="author" placeholder="Authors">
+						<input type="text " class="form-control" name="author" value="{{$data->author}}">
 					</div>
 					
 					<div class="mb-3">

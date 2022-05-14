@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Book;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,9 +29,9 @@ class BookController extends Controller{
      */
     public function create()
     {
-        $data= Book::all();
+        $data= Category::all();
         return view('admin.book.create',[
-            'data' => $data
+            'data'=>$data
         ]);
     }
 
@@ -84,7 +85,7 @@ class BookController extends Controller{
     public function edit(Book $book,$id)
     {
         $data= Book::find($id);
-        $datalist = Book::all();
+        $datalist = Category::all();
         return view('admin.book.edit',[
             'data' => $data,
             'datalist' => $datalist
@@ -126,7 +127,10 @@ class BookController extends Controller{
     public function delete(Category $category,$id)
     {
         $data = Book::find($id);
+        if($data->image && Storage::disk('public')->exists($data->image))
+        {
         Storage::delete($data->image);
+        }
         $data->delete();
         return redirect('admin/book');
     }

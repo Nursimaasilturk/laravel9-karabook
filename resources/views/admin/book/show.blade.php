@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Show Category:'.$data->title)
+@section('title', 'Show Book:'.$data->title)
 @section('content')
 <!-- Content Wrapper, Contain Page Content-->
 <div class="content-wrapper">
@@ -9,16 +9,16 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col sm-3">
-					<a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-outline-warning" style="width:200px;">Edit</a>
+					<a href="{{route('admin.book.edit',['id'=>$data->id])}}" class="btn btn-outline-warning" style="width:200px;">Edit</a>
 				</div>
 				<div class="col sm-3">
-					<a href="{{route('admin.category.delete',['id'=>$data->id])}}" class="btn btn-outline-primary"  style="width:200px;"
+					<a href="{{route('admin.book.delete',['id'=>$data->id])}}" class="btn btn-outline-primary"  style="width:200px;"
 					onclick="return confirm('Deleting!! Are you sure?')">Delete</a>
 				</div>
 				<div class="col sm-6">
 					<ol class=" breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">HOME</a></li>
-						<li class="breadcrumb-item active">Show Category</li>
+						<li class="breadcrumb-item active">Show Book</li>
 					</ol>
 				</div>
 			</div>
@@ -31,7 +31,7 @@
 				<div class="card-body">
 					<h4 class="card-title" style="color:blue;">Detail Data</h4>
 					<p class="card-description">
-						Add class
+						
 					</p>
 					<div class="table-responsive pt-3">
 						<table class="table table-bordered">
@@ -40,16 +40,36 @@
 								<td>{{$data->id}}</td>
 							</tr>
 							<tr class="tr-items">
+								<th class="tr-items-title">Category</th>
+								<td>{{$data->category_id}}</td>
+							</tr>
+							<tr class="tr-items">
 								<th class="tr-items-title">Title</th>
 								<td>{{$data->title}}</td>
+							</tr>
+							<tr class="tr-items">
+								<th class="tr-items-title">Description</th>
+								<td>{{$data->description}}</td>
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Keywords</th>
 								<td>{{$data->keywords}}</td>
 							</tr>
 							<tr class="tr-items">
+								<th class="tr-items-title">Details</th>
+								<td>{{$data->detail}}</td>
+							</tr>
+							<tr class="tr-items">
+								<th class="tr-items-title">Authors</th>
+								<td>{{$data->author}}</td>
+							</tr>
+							<tr class="tr-items">
 								<th class="tr-items-title">Image</th>
-								<td></td>
+								<td> 
+									@if ($data->image)
+											<img src="{{Storage::url($data->image)}}" style="height:40px">
+											@endif
+								</td>
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Status</th>
