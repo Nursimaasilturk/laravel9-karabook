@@ -41,7 +41,7 @@
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Category</th>
-								<td>{{$data->category_id}}</td>
+								<td>{{$data->category->title}}</td>
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Title</th>

@@ -35,24 +35,24 @@
 						<label>Parent Category</label>
 						<select class="form-control select2" name="category_id">
 							@foreach($data as $rs)
-								<option value="{{$rs->id}}" @if ($rs->id== $data->category_id) selected ="selected" @endif >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+								<option value="{{$rs->id}}">{{$rs->title}}</option>
 							@endforeach
 						</select>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputName1">Title</label>
-						<input type="text " class="form-control" name="title" value="{{$data->title}}">
+						<input type="text " class="form-control" name="title" >
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputName1">Description</label>
-						<input type="text " class="form-control" name="description" value="{{$data->description}}">
+						<input type="text " class="form-control" name="description" >
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputName1">Keywords</label>
-						<input type="text " class="form-control" name="keywords" value="{{$data->keywords}}">
+						<input type="text " class="form-control" name="keywords" >
 					</div>
 					<div class="form-group">
 						<label for="exampleInputName1">Details</label>
@@ -63,7 +63,7 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputName1">Authors</label>
-						<input type="text " class="form-control" name="author" value="{{$data->author}}">
+						<input type="text " class="form-control" name="author" >
 					</div>
 					
 					<div class="mb-3">
