@@ -59,7 +59,7 @@
 									@foreach($data as $rs)
 									<tr>
 										<td>{{$rs->id}}</td>
-										<td>{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</td>
+										<td>{{ \App\Http\Controllers\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</td>
 										<td>{{$rs->title}}</td>
 										<td>{{$rs->author}}</td>
 										<td>

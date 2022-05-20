@@ -11,7 +11,7 @@ class CategoryController extends Controller
 
     protected $appends=['getParentsTree'];
     public static function getParentsTree($category,$title){
-        if($category->parent_id==0)
+        if($category->parent_id ==0)
             return $title;
         
         $parent=Category::find($category->parent_id);

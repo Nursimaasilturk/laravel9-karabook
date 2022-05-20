@@ -41,7 +41,9 @@
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Category</th>
-								<td>{{$data->category->title}}</td>
+								<td>
+								{{ \App\Http\Controllers\CategoryController::getParentsTree($data->category,$data->category->title) }}
+								</td>
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Title</th>

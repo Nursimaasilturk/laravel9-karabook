@@ -24,9 +24,9 @@
 	<section class="container">
 		<div class="card">
 			<div class="card-body">
-				<h4 class="card-title">Category Elements2</h4>
+				
 				<p class="card-description">
-					Basic form elements
+				
 				</p>
 				<form class="forms-sample" role="form" action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
 					@csrf

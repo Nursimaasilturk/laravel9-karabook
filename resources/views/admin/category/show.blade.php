@@ -31,7 +31,7 @@
 				<div class="card-body">
 					<h4 class="card-title" style="color:blue;">Detail Data</h4>
 					<p class="card-description">
-						Add class
+					
 					</p>
 					<div class="table-responsive pt-3">
 						<table class="table table-bordered">
@@ -42,6 +42,10 @@
 							<tr class="tr-items">
 								<th class="tr-items-title">Title</th>
 								<td>{{$data->title}}</td>
+							</tr>
+							<tr class="tr-items">
+								<th class="tr-items-title">Description</th>
+								<td>{{$data->description}}</td>
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Keywords</th>

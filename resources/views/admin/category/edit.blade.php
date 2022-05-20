@@ -26,16 +26,16 @@
 			<div class="card-body">
 				<h4 class="card-title">Category Elements</h4>
 				<p class="card-description">
-					Basic form elements
+					 
 				</p>
 				<form class="forms-sample" role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
 						<label>Parent Category</label>
-						<select class="form-control select2" name="category_id">
-							
+						<select class="form-control select2" name="parent_id">
+							<option value="0">Main Category</option>
 							@foreach($datalist as $rs)
-							<option value="{{$rs->id}}" >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+							<option value="{{$rs->id}}" @if($rs->id==$data->parent_id) selected @endif >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
 							@endforeach
 						</select>
 					</div>	
