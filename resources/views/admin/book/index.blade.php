@@ -91,7 +91,7 @@
 			<!--/.card -->
 		</div>
 	</section>
-
+<!-- Üst kısma liste eklenecek 25:30-->
 
 </div>
 @endsection

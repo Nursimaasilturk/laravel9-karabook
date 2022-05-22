@@ -3,6 +3,7 @@
 
 
 @section('content')
+
 <h2 class="input-group_image-gallery_title">{{$book->title}}</h2>
 <hr>
 <form class="forms-sample" role="form" action="{{route('admin.image.store',['bid'=>$book->id])}}" method="POST" enctype="multipart/form-data">
@@ -10,18 +11,17 @@
 
 	<div class="input-group_image-gallery">
 		<div class="input-group_items">
-			<label class="gallery-title" for="exampleInputName1"><strong>
-					Title</strong></label>
+			<label class="gallery-title" for="exampleInputName1"><strong>Title</strong></label>
 			<input type="text " class="form-control" name="title" placeholder="Title">
 		</div>
 		<div class="input-group_items">
 			<div class="custom-file">
-				<input type="file" class="custom-file-input" id="inputGroupFile04">
+				<input type="file" class="custom-file-input" id="inputGroupFile04"name="image">
 				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 			</div>
 		</div>
 		<div class="input-group_items">
-			<button type="submit" class="btn btn-primary mr-2">Upload</button>
+			<button type="submit" class="btn btn-primary mr-2" value="Upload">Upload</button>
 		</div>
 
 	</div>
@@ -48,7 +48,6 @@
 								<th>ID</th>
 								<th>Title</th>
 								<th>Image</th>
-								<th>Update</th>
 								<th>Delete</th>
 
 							</tr>
@@ -63,9 +62,8 @@
 									<img src="{{Storage::url($rs->image)}}" style="height: 50px">
 									@endif
 								</td>
-								<td>{{$rs->status}}</td>
-								<td><a href="{{route('admin.category.update',['id'=>$rs->id])}}" class="btn btn-outline-success">UPDATE</a></td>
-								<td><a href="{{route('admin.category.delete',['id'=>$rs->id])}}" class="btn btn-outline-danger" onclick="return confirm('Deleting!! Are you sure?')">DELETE</a></td>
+								
+								<td><a href="{{route('admin.image.delete',['bid'=>$book->id,'id'=>$rs->id])}}" class="btn btn-outline-danger" onclick="return confirm('Deleting!! Are you sure?')">DELETE</a></td>
 							</tr>
 
 							@endforeach

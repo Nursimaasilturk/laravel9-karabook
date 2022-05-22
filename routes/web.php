@@ -10,6 +10,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\ImageController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,10 +68,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/show/{id}','show')->name('show');
     });
     // ------------------- ADMİN BOOK IMAGE ROUTES --------------------
-    Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function () {
+    Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function () {
         Route::get('/{bid}','index')->name('index');
         Route::post('/store/{bid}','store')->name('store');
-        Route::post('/update/{bid}/{id}','update')->name('update');
         Route::get('/delete/{bid}/{id}','delete')->name('delete');
         
     });

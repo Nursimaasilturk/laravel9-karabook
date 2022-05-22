@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Image;
+
+
 
 class ImageController extends Controller
 {
@@ -16,10 +20,11 @@ class ImageController extends Controller
     public function index($bid)
     {
         $book= Book::find($bid);
-        $image= Image::where('book_id',$bid);
+        //$images= Image::where('book_id',$bid);
+        $images= DB::table('images')->where('book_id',$bid)->get();
         return view('admin.image.index',[
             'book'=> $book,
-            'images'=>$image
+            'images'=>$images
         ]);
     }
 
@@ -84,6 +89,12 @@ class ImageController extends Controller
      */
     public function delete($bid,$id)
     {
-        //
+        $data = Image::find($id);
+        if($data->image && Storage::disk('public')->exists($data->image))
+        {
+        Storage::delete($data->image);
+        }
+        $data->delete();
+        return redirect()->route('admin.image.index',['bid'=>$bid]);
     }
 }
