@@ -48,6 +48,7 @@
 										<th>Title</th>
 										<th>Author</th>
 										<th>Image</th>
+										<th>Image Gallery</th>
 										<th>Status</th>
 										<th>Edit</th>
 										<th>Delete</th>
@@ -66,6 +67,12 @@
 											@if ($rs->image)
 											<img src="{{Storage::url($rs->image)}}" style="height:40px">
 											@endif
+										</td>
+										<td>
+										    <a href="{{route('admin.image.index',['bid'=>$rs->id])}}"
+											onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+											<img src="{{asset('assets')}}/admin/images/image_gallery.png" style="height:40px"alt="">
+											</a>
 										</td>
 										<td>{{$rs->status}}</td>
 										<td><a href="{{route('admin.book.edit',['id'=>$rs->id])}}" class="btn btn-outline-success">EDİT</a></td>

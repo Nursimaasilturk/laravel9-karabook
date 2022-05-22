@@ -25332,7 +25332,27 @@ ion-icon {
   
 
 }
-
+.input-group_image-gallery{
+  display: flex;
+  justify-content:space-between;
+  background: #001737;
+  padding: 10px;
+  
+}
+.input-group_image-gallery_title{
+  color:#001737;
+}
+.input-group_image-gallery .gallery-title{
+  color:white;
+}
+.input-group_image-gallery .input-group_items{
+  display: flex;
+  margin:20px;
+}
+.input-group_image-gallery .input-group_items:first-child{
+    margin: 15px;
+    padding: 15px;
+}
 /*------- Added CSS Files */
 
 

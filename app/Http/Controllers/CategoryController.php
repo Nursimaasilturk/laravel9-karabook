@@ -62,7 +62,7 @@ class CategoryController extends Controller
         $data ->description = $request->description;
         $data ->status = $request->status;
         if ($request->file('image')){
-            $data->image= $request->file('image')->store('image');
+            $data->image= $request->file('image')->store('images');
         }
         $data->save();
         return redirect('admin/category');

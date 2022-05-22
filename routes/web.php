@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ImageController;
 
 
 /*
@@ -65,7 +66,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/delete/{id}','delete')->name('delete');
         Route::get('/show/{id}','show')->name('show');
     });
-    // ------------------- ADMİN BOOK ROUTES --------------------
+    // ------------------- ADMİN BOOK IMAGE ROUTES --------------------
+    Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function () {
+        Route::get('/{bid}','index')->name('index');
+        Route::post('/store/{bid}','store')->name('store');
+        Route::post('/update/{bid}/{id}','update')->name('update');
+        Route::get('/delete/{bid}/{id}','delete')->name('delete');
+        
+    });
+    //-----------------------ADMİN BOOK  ROUTES ----------------
     Route::prefix('book')->name('book.')->controller(BookController::class)->group(function () {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
