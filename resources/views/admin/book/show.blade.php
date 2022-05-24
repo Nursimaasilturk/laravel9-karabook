@@ -59,7 +59,7 @@
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Details</th>
-								<td>{{$data->detail}}</td>
+								<td>{{!! $data->detail !!}}</td>
 							</tr>
 							<tr class="tr-items">
 								<th class="tr-items-title">Authors</th>

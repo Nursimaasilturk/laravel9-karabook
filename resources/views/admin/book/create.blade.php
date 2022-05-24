@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('title', 'Add Book')
+@section('')
+
 @section('content')
 <!-- Content Wrapper, Contain Page Content-->
 <div class="content-wrapper">
