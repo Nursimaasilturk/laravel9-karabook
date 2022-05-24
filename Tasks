@@ -1,2 +1,3 @@
 --> text editörü detail kısmındaki alana uygulayamıyorum.
 --> book/edit kısmına uyguladığım editör tüm sayfayı etkiliyor.
+--> home controller indexte tanımladığım nesne adı sliderda tanımsız gözüküyor.

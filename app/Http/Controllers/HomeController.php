@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class HomeController extends Controller
 {
     //
     public function index(){
-        return view('home.index');
+        $sliderdata = Book::limit(5)->get();
+        return view('home.index',[
+            'sliderdata'=>$sliderdata 
+        ]);
     }
     public function about_us(){
         return view('home.about');
