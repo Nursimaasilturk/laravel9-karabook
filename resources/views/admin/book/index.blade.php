@@ -60,11 +60,11 @@
 									@foreach($data as $rs)
 									<tr>
 										<td>{{$rs->id}}</td>
-										<td>{{ \App\Http\Controllers\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</td>
+										<td >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</td>
 										<td>{{$rs->title}}</td>
 										<td>{{$rs->author}}</td>
 										<td>
-											@if ($rs->image)
+											@if($rs->image)
 											<img src="{{Storage::url($rs->image)}}" style="height:40px">
 											@endif
 										</td>

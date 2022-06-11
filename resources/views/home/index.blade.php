@@ -16,8 +16,5 @@
       @include('home._description')
       @include('home._social')
       @include('home._subscribe')
-
-      @include('home._footer')
-
 @endsection
 

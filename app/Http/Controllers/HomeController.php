@@ -2,31 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Book;
 
 class HomeController extends Controller
 {
-    //
+    public static function categoryList()
+    {
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
     public function index(){
         $sliderdata = Book::limit(5)->get();
+        $booklist1 = Book::limit(6)->get();
         return view('home.index',[
-            'sliderdata'=>$sliderdata 
+            'sliderdata'=>$sliderdata,
+            'booklist1'=>$booklist1  
         ]);
     }
-    public function about_us(){
-        return view('home.about');
+    public function book($id){
+        
+        $data=Book::find($id);
+        $relbook=Book::where("category_id",$data->category_id)
+        ->where('id','!=',$id)
+         ->get();
+        return view('home.book',[
+            'data'=>$data,
+            'relbook'=>$relbook
+        ]);
     }
-
-    public function test($id,$name){
-        return view('home.test',['id'=>$id,'name'=>$name]);
-        /*
-        echo "ID number:",$id;
-        echo "<br>Name:",$name;
-        for($i=0;$i<=$id;$i++){
-            echo "<br> $i - $name";
-        }
-*/
-
+    public function category_book($id){
+        $omer=Book::where("category_id",$id)->get();
+        return view('home.categorybook',[
+            'omer'=>$omer
+        ]);
     }
-}
+   
+
+} 

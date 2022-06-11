@@ -35,10 +35,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about_us'])->name('about');
 //Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->where(['id'=>'[0-9]+','name'=>'[A-Za-z]+']);
 Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->whereNumber('id')->whereAlpha('name')->name('test');
-
-Route::get('/', function () {
-    return view('home.index', ['name' => 'Nursima ASİLTÜRK']);
-});
+Route::get('/category/{id}',[HomeController::class,'category_book'])->name('category_book');
+Route::get('/book/{id}',[HomeController::class,'book'])->name('book');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::redirect('/anasayfa', '/home')->name('anasayfa');
 
 

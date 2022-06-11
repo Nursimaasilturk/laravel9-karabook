@@ -41,11 +41,10 @@
 				<form class="forms-sample" role="form" action="{{route('admin.book.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
-						<label>Parent Category</label>
+						<label>Category Name</label>
 						<select class="form-control select2" name="category_id">
-							<option value="0" selected="selected">Main Book</option>
 							@foreach($datalist as $rs)
-							<option value="{{$rs->id}}" >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
+							<option value="{{$rs->id}}"  >{{ \App\Http\Controllers\CategoryController::getParentsTree($rs,$rs->title) }}</option>
 							@endforeach
 						</select>
 					</div>	
