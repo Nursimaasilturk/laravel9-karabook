@@ -2,7 +2,7 @@
 <ul>
 	@if(count($subcategory->children))
 	<li class="submenu">
-		<a href="javascript:;">{{$subcategory->title}}</a>
+		<a href="{{route('category_book',['id'=>$subcategory->id])}}">{{$subcategory->title}}</a>
 		<ul>
 			@include('home.categorytree',['children' => $subcategory->children])
 		</ul>

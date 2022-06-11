@@ -7,7 +7,7 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
             @foreach($mainCategories as $rs)
-            <li><a class="dropdown-item text-dark" href="#">{{$rs->title}}</a>
+            <li><a class="dropdown-item text-dark" href="{{route('category_book',['id'=>$rs->id])}}">{{$rs->title}}</a>
                 @if(count($rs->children))
                 @include('home.categorytree',['children'=> $rs->children])
                 @endif

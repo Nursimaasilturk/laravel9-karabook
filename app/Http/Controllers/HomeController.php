@@ -32,10 +32,15 @@ class HomeController extends Controller
         ]);
     }
     public function category_book($id){
-        $omer=Book::where("category_id",$id)->get();
-        return view('home.categorybook',[
-            'omer'=>$omer
-        ]);
+        $bookList=Book::where("category_id",$id)->get();
+        if(!count($bookList)==0){
+            return view('home.categorybook',[
+                'bookList'=>$bookList,
+            ]);
+        }else{
+            return redirect()->back();
+        }
+        
     }
    
 
