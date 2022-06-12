@@ -48,6 +48,7 @@
 	</section>
 	<div class="comment-container container-fluid">
 		<div class="row">
+		
 			@include('home.comment')
 		</div>
 	</div>

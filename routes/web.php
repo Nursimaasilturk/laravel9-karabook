@@ -11,8 +11,8 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Admin\FaqController;
-
-
+use App\Http\Controllers\Admin\CommentController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +25,8 @@ use App\Http\Controllers\Admin\FaqController;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+Route::get('/signup', [HomeController::class, 'signup'])->name('signup');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about_us'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
@@ -45,6 +38,7 @@ Route::get('/faq', [FaqController::class, 'show'])->name('faq');
 Route::get('/category/{id}', [HomeController::class, 'category_book'])->name('category_book');
 Route::get('/book/{id}', [HomeController::class, 'book'])->name('book');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+//Route::get('/user/profile', [HomeController::class, 'user_profile'])->name('user_profile');
 
 ##COMMENTS
 Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('storecomment');
@@ -54,15 +48,7 @@ Route::redirect('/anasayfa', '/home')->name('anasayfa');
 
 ##homepages
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-});
+
 
 // ---------------- ADMİN PANEL ROUTES--------------
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -117,4 +103,29 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
     });
+    //-----------------------Admin Comment----------------
+    Route::prefix('comment')->name('comment.')->controller(CommentController::class)->group(function () {
+        Route::get('/', "index")->name('index');
+        Route::get('/delete/{id}', "destroy")->name('delete');
+        Route::post('/update/{id}', "update")->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+    });
+    //-----------------------Admin Comment----------------
+    Route::prefix('user')->name('user.')->controller(UserController::class)->group(function () {
+        Route::get('/', "index")->name('index');
+        Route::get('/delete/{id}', "destroy")->name('delete');
+        Route::post('/update/{id}', "update")->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/addrole/{id}', 'addrole')->name('addrole');
+    });
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });

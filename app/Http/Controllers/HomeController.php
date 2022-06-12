@@ -6,7 +6,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Setting;
-
+use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public static function categoryList()
@@ -27,9 +28,11 @@ class HomeController extends Controller
         $relbook=Book::where("category_id",$data->category_id)
         ->where('id','!=',$id)
          ->get();
+         $comments=Comment::where('book_id',$id)->get();
         return view('home.book',[
             'data'=>$data,
-            'relbook'=>$relbook
+            'relbook'=>$relbook,
+            'commentList'=>$comments
         ]);
     }
     public function category_book($id){
@@ -58,7 +61,35 @@ class HomeController extends Controller
         return view('home.pages.references',['data'=>$data]);
     }
 
-    public function storecomment(){
-        
+    public function storecomment(Request $request){
+        $comment=new Comment;
+        $comment->user_id=Auth::id(); 
+        $comment->book_id=$request->book_id;
+        $comment->subject=$request->subject;
+        $comment->comment=$request->comment;
+        $comment->rate=$request->rate;
+        $comment->ip=request()->ip();
+        $comment->status=1;
+        $comment->save();
+        return redirect()->route('book',['id'=>$comment->book_id])->with('success','Successfully commended out!');
+
+    }
+
+    ##logout
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home');
+    }
+
+
+    public function signup(){
+        return view('home.user.customregister');
+    }
+
+    public function user_profile(){
+        return view('home.user.profile');
     }
 } 

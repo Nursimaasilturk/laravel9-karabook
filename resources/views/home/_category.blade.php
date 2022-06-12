@@ -19,14 +19,26 @@
     <li class="scroll-to-section"><a href="{{route('contact')}}">Contact Us</a></li>
     <li class="scroll-to-section"><a href="{{route('references')}}">References</a></li>
     <li class="scroll-to-section"><a href="{{route('about')}}">About Us</a></li>
+    @auth
+    <li class="submenu">
+        <a href="javascript:;">{{Auth::user()->name}}</a>
+        <ul>
+            <li><a href="/user/profile">Profile</a></li>
+            <li><a href="/admin">Dashboard</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+
+    </li>
+    @else
     <li class="submenu">
         <a href="javascript:;">USER</a>
         <ul>
             <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
+            <li><a href="/signup">Register</a></li>
         </ul>
 
     </li>
+    @endauth
 
 </ul>
 

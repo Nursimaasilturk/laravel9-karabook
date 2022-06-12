@@ -68,12 +68,6 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/admin/social">
-        <ion-icon name="mail-sharp" style="color:mediumslateblue"></ion-icon>Social Media
-      </a>
-    </li>
-
-    <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <i class="typcn typcn-briefcase menu-icon" style="color:salmon"></i>
         <span class="menu-title">Reservations</span>
@@ -88,21 +82,4 @@
         </ul>
       </div>
     </li>
-
-    <li class="nav-item">
-      <a class="nav-link" href="pages/documentation/documentation.html">
-
-        <i class="typcn typcn-document-text menu-icon"></i>
-        <span class="menu-title">Documentation</span>
-      </a>
-    </li>
-  </ul>
-  <ul class="sidebar-legend">
-    <li>
-      <p class="sidebar-menu-title">Labels</p>
-
-
-   
-    </li>
-  </ul>
 </nav>
