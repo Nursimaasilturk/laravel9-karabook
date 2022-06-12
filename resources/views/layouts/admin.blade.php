@@ -24,7 +24,6 @@
   <body>
 	  @include('admin._header')
     <div class="container-fluid page-body-wrapper">
-    @include('admin._option')
     @include('admin._sidebar')
     <div class="main-panel">
     @section('content')

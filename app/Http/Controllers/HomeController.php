@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
@@ -43,5 +44,21 @@ class HomeController extends Controller
         
     }
    
+    ##PAGES
+    public function about_us(){
+        $data=Setting::first()->aboutus;
+        return view('home.pages.aboutus',['data'=>$data]);
+    }
+    public function contact_us(){
+        $data=Setting::first()->contact;
+        return view('home.pages.contactus',['data'=>$data]);
+    }
+    public function references(){
+        $data=Setting::first()->references;
+        return view('home.pages.references',['data'=>$data]);
+    }
 
+    public function storecomment(){
+        
+    }
 } 

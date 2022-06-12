@@ -48,13 +48,18 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/admin/faq">
+      <a class="nav-link" href="{{route('admin.faq.index')}}">
         <ion-icon name="help-circle-sharp" style="color:greenyellow"></ion-icon>FAQ
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/admin/message">
+      <a class="nav-link" href="{{route('admin.messages.index')}}">
         <ion-icon name="mail-outline" style="color:yellow"></ion-icon>Messages
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{route('admin.settings.index')}}" class="nav-link">
+        <ion-icon name="settings-sharp" style="color:lightseagreen"></ion-icon>Settings
       </a>
     </li>
     <li class="nav-item">
@@ -97,11 +102,7 @@
       <p class="sidebar-menu-title">Labels</p>
 
 
-    <li class="nav-item">
-      <a href="/admin/settings" class="nav-link">
-        <ion-icon name="settings-sharp" style="color:lightseagreen"></ion-icon>Settings
-      </a>
-    </li>
+   
     </li>
   </ul>
 </nav>
